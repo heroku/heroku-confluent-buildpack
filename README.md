@@ -17,3 +17,14 @@ Git remote heroku added
 
 Of course, this doesn't solve the problem of setting up a proper
 config file, which is left as an exercise to the reader, for now.
+
+Now that you have an app, you can download and "install" a version
+by setting up `CONFLUENT_VERSION=1.0.1`, and deploying an app that
+makes use of confluent.
+
+```bash
+$ heroku config:set CONFLUENT_VERSION=1.0.1
+Setting config vars and restarting vast-woodland-9430... done, v3
+CONFLUENT_VERSION: 1.0.1
+```
+
