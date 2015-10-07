@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+indent() {
+    sed -u 's/^/      /'
+}
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+CONFLUENT_VERSION=$(cat ${ENV_DIR}/CONFLUENT_VERSION)
+
+if [[ -z "${CONFLUENT_VERSION}" ]]; then
+    echo "CONFLUENT_VERSION was not set. Aborting" | indent
+    exit 1
+fi
+
+ARCHIVE_URL=http://packages.confluent.io/archive/1.0/confluent-${CONFLUENT_VERSION}-2.10.4.tar.gz
+wget -qO - $ARCHIVE_URL | tar -zxf -
+if ! [ $? ]; then
+    echo "FAILED to obtain confluent distribution" | indent
+    exit 1
+fi
+
+cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
+
+echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent

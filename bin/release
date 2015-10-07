@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Confluent"
+exit 0
