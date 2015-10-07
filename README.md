@@ -15,9 +15,6 @@ https://vast-woodland-9430.herokuapp.com/ | https://git.heroku.com/vast-woodland
 Git remote heroku added
 ```
 
-Of course, this doesn't solve the problem of setting up a proper
-config file, which is left as an exercise to the reader, for now.
-
 Now that you have an app, you can download and "install" a version
 by setting up `CONFLUENT_VERSION=1.0.1`, and deploying an app that
 makes use of confluent.
@@ -26,4 +23,31 @@ makes use of confluent.
 $ heroku config:set CONFLUENT_VERSION=1.0.1
 Setting config vars and restarting vast-woodland-9430... done, v3
 CONFLUENT_VERSION: 1.0.1
+```
+
+Setting `CONFLUENT_COMPONENT=(kafka-rest|schema-registry)` will also
+create a `bin/run-confluent` script, which will perform the following
+steps:
+
+* If you have an executable at the root of your app named
+  `properties-generate`, it will run it, with no arguments, and
+  redirect STDOUT to confluent.properties.
+
+* It will setup a trap to run `bin/$CONFLUENT_COMPONENT}-stop` on
+  SIGINT, or SIGTERM.
+
+* It will then substitute `%PORT%` for the value of the environment
+  variable `$PORT` (this enables static configuration).
+
+* It will then launch `bin/${CONFLUENT_COMPONENT}-start confluent.properties`
+
+This provides ultimate flexibility in generating your properties file
+from the heroku config, or through a static config file which is part
+of your app.
+
+## Your app's Procfile
+
+```bash
+$ cat Procfile
+web: bin/run-component
 ```

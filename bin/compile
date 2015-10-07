@@ -25,3 +25,26 @@ fi
 cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
 
 echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent
+
+CONFLUENT_COMPONENT=$(cat ${ENV_DIR}/CONFLUENT_COMPONENT)
+
+if [[ -z "${CONFLUENT_COMPONENT}" ]]; then
+    echo "CONFLUENT_COMPONENT was not set, so not creating run-confluent script" | indent
+    exit 0
+fi
+
+cat > bin/run-confluent <<EOF
+#!/usr/bin/env bash
+
+if [ -x "./properties-generate" ]; then
+    ./properties-generate > confluent.properties
+fi
+
+trap "bin/${CONFLUENT_COMPONENT}-stop" SIGINT SIGTERM
+
+bin/${CONFLUENT_COMPONENT}-start confluent.properties
+EOF
+
+chmod a+x bin/run-confluent
+
+exit 0
