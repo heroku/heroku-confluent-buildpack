@@ -27,4 +27,3 @@ $ heroku config:set CONFLUENT_VERSION=1.0.1
 Setting config vars and restarting vast-woodland-9430... done, v3
 CONFLUENT_VERSION: 1.0.1
 ```
-
