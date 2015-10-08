@@ -33,7 +33,7 @@ if [[ -z "${CONFLUENT_COMPONENT}" ]]; then
     exit 0
 fi
 
-cat > bin/run-confluent <<EOF
+cat > ${BUILD_DIR}/bin/run-confluent <<EOF
 #!/usr/bin/env bash
 
 if [ -x "./properties-generate" ]; then
@@ -47,6 +47,6 @@ trap "bin/${CONFLUENT_COMPONENT}-stop" SIGINT SIGTERM
 bin/${CONFLUENT_COMPONENT}-start confluent.properties
 EOF
 
-chmod a+x bin/run-confluent
+chmod a+x ${BUILD_DIR}/bin/run-confluent
 
 exit 0
