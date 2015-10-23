@@ -8,6 +8,16 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+# download the buildpack
+JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
+mkdir -p /tmp/jvm-common
+curl --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
+. /tmp/jvm-common/bin/util
+. /tmp/jvm-common/bin/java
+
+# install JDK
+install_java_with_overlay ${BUILD_DIR}
+
 CONFLUENT_VERSION=$(cat ${ENV_DIR}/CONFLUENT_VERSION)
 
 if [[ -z "${CONFLUENT_VERSION}" ]]; then
