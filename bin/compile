@@ -19,6 +19,7 @@ curl --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --st
 install_java_with_overlay ${BUILD_DIR}
 
 CONFLUENT_VERSION=$(cat ${ENV_DIR}/CONFLUENT_VERSION)
+ARCHIVE_URL_OVERRIDE=$(cat ${ENV_DIR}/ARCHIVE_URL_OVERRIDE)
 
 if [[ -z "${CONFLUENT_VERSION}" ]]; then
     echo "CONFLUENT_VERSION was not set. Aborting" | indent
