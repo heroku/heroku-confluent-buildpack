@@ -49,5 +49,5 @@ of your app.
 
 ```bash
 $ cat Procfile
-web: bin/run-component
+web: bin/run-confluent
 ```
