@@ -1,3 +1,7 @@
+# Note: This buildpack is not currently maintained. 
+
+However, that doesn't mean that it won't work, or that we won't take and apply pull requests for those interested in contributing. If you're using this buildpack and would like to become the maintainer, we would be happy to bless your fork as superceding this version, provided you're doing so in good faith. 
+
 # Heroku Confluent Buildpack
 
 Installs the [Confluent](https://confluent.io) distribution on
