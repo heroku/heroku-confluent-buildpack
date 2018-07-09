@@ -26,7 +26,7 @@ if [[ -z "${CONFLUENT_VERSION}" ]]; then
     exit 1
 fi
 
-ARCHIVE_URL=${ARCHIVE_URL_OVERRIDE:-https://packages.confluent.io/archive/1.0/confluent-${CONFLUENT_VERSION}-2.10.4.tar.gz}
+ARCHIVE_URL=${ARCHIVE_URL_OVERRIDE:-https://packages.confluent.io/archive/4.1/confluent-${CONFLUENT_VERSION}-2.11.tar.gz}
 wget -qO - $ARCHIVE_URL | tar -zxf -
 if ! [ $? ]; then
     echo "FAILED to obtain confluent distribution" | indent
