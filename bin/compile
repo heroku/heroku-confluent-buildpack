@@ -38,7 +38,7 @@ cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
 
 echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent
 
-ls
+ls confluent-5.2.1
 
 rm -rf confluent-${CONFLUENT_VERSION}/share/doc
 rm -rf confluent-${CONFLUENT_VERSION}/java/kafka-connect-elasticsearch
