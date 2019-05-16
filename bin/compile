@@ -40,6 +40,8 @@ echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent
 
 echo $BUILD_DIR
 
+echo "${BUILD_DIR}/confluent-${CONFLUENT_VERSION}/share/doc"
+
 rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/share/doc
 rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-elasticsearch
 rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-s3
