@@ -46,7 +46,8 @@ rm -rf confluent-${CONFLUENT_VERSION}/java/kafka-connect-hdfs
 rm -rf confluent-${CONFLUENT_VERSION}/java/kafka-connect-activemq
 rm -rf confluent-${CONFLUENT_VERSION}/java/kafka-connect-imbmq
 rm -rf confluent-${CONFLUENT_VERSION}/java/kafka-connect-jms
-
+ 
+ls -lf confluent-${CONFLUENT_VERSION}
 
 CONFLUENT_COMPONENT=$(cat ${ENV_DIR}/CONFLUENT_COMPONENT)
 
