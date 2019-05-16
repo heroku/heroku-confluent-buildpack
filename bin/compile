@@ -34,7 +34,7 @@ fi
 #    exit 1
 #fi
 
-#cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
+cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
 
 echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent
 
