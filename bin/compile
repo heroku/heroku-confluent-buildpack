@@ -33,6 +33,7 @@ fi
 #    echo "FAILED to obtain confluent distribution" | indent
 #    exit 1
 #fi
+ls
 
 cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
 
