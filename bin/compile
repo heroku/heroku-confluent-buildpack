@@ -59,6 +59,9 @@ trap "bin/${CONFLUENT_COMPONENT}-stop" SIGINT SIGTERM
 bin/${CONFLUENT_COMPONENT}-start confluent.properties
 EOF
 
+ls ${BUILD_DIR}/bin
+cat ${BUILD_DIR}/bin/run-confluent
+
 chmod a+x ${BUILD_DIR}/bin/run-confluent
 
 exit 0
