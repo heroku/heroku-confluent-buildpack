@@ -40,6 +40,14 @@ echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent
 
 echo $BUILD_DIR
 
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/share/doc
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-elasticsearch
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-s3
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-hdfs
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-activemq
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-imbmq
+rm -rf $BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-jms
+
 CONFLUENT_COMPONENT=$(cat ${ENV_DIR}/CONFLUENT_COMPONENT)
 
 if [[ -z "${CONFLUENT_COMPONENT}" ]]; then
