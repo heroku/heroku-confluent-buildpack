@@ -36,14 +36,9 @@ fi
 
 cp -a confluent-${CONFLUENT_VERSION}/* $BUILD_DIR/
 
-ls
-ls $BUILD_DIR/
-
 echo "Copied Confluent ${CONFLUENT_VERSION} successfully" | indent
 
-echo $BUILD_DIR
-
-ls -lf "${BUILD_DIR}/confluent-${CONFLUENT_VERSION}"
+ls
 
 rm -rf "${BUILD_DIR}/confluent-${CONFLUENT_VERSION}/share/doc"
 rm -rf "$BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-elasticsearch"
@@ -53,7 +48,7 @@ rm -rf "$BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-activemq"
 rm -rf "$BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-imbmq"
 rm -rf "$BUILD_DIR/confluent-${CONFLUENT_VERSION}/java/kafka-connect-jms"
 
-ls -lf "${BUILD_DIR}/confluent-${CONFLUENT_VERSION}"
+
 
 CONFLUENT_COMPONENT=$(cat ${ENV_DIR}/CONFLUENT_COMPONENT)
 
